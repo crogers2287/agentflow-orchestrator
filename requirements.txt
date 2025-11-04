@@ -1,0 +1,50 @@
+# Core dependencies
+python>=3.10
+
+# AI/ML Libraries
+google-generativeai>=0.3.0  # Gemini API
+vllm>=0.2.0  # vLLM for AgentFlow model serving
+torch>=2.0.0  # Required by vLLM
+transformers>=4.35.0  # Model loading
+
+# Token counting and text processing
+tiktoken>=0.5.0  # Token counting for context management
+tokenizers>=0.15.0  # Additional tokenization support
+
+# Data validation and models
+pydantic>=2.0.0  # Type-safe data models
+pydantic-settings>=2.0.0  # Settings management
+
+# Async and networking
+aiohttp>=3.9.0  # Async HTTP
+httpx>=0.25.0  # Modern HTTP client
+
+# Configuration
+pyyaml>=6.0.0  # YAML config files
+python-dotenv>=1.0.0  # Environment variables
+
+# Logging
+structlog>=23.0.0  # Structured logging
+colorama>=0.4.6  # Colored terminal output
+
+# CLI
+rich>=13.0.0  # Beautiful terminal output
+click>=8.1.0  # CLI framework
+prompt-toolkit>=3.0.0  # Interactive prompts
+
+# Utilities
+python-dateutil>=2.8.0  # Date/time handling
+tenacity>=8.2.0  # Retry logic
+
+# Development and testing
+pytest>=7.4.0  # Testing framework
+pytest-asyncio>=0.21.0  # Async testing
+pytest-cov>=4.1.0  # Coverage reporting
+black>=23.0.0  # Code formatting
+isort>=5.12.0  # Import sorting
+mypy>=1.5.0  # Type checking
+flake8>=6.0.0  # Linting
+
+# Optional: Document processing for large-context tasks
+pypdf>=3.17.0  # PDF processing
+python-docx>=1.0.0  # Word document processing

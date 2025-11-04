@@ -1,0 +1,60 @@
+# AgentFlow + Gemini Orchestration Settings
+
+# API Keys (use environment variables in production)
+api_keys:
+  gemini_api_key: "your-gemini-api-key-here"
+  # Add other API keys as needed
+
+# Model Configuration
+models:
+  agentflow:
+    model_name: "AgentFlow/agentflow-planner-7b"
+    vllm_host: "localhost"
+    vllm_port: 8000
+    context_limit: 8000
+    temperature: 0.7
+    max_tokens: 2048
+
+  gemini:
+    model_name: "gemini-2.5-pro"
+    context_limit: 2000000  # 2M tokens
+    temperature: 0.7
+    max_tokens: 8192
+
+# Context Routing Thresholds
+context_routing:
+  small_threshold: 8000      # < 8K tokens: AgentFlow primary, Gemini verifies
+  medium_threshold: 100000   # 8K-100K: AgentFlow coordinates, Gemini assists
+  large_threshold: 100001    # > 100K: AgentFlow orchestrates, Gemini heavy lifting
+
+# Verification Settings
+verification:
+  enabled: true
+  max_iterations: 3          # Max verification rounds
+  debate_rounds: 3           # Max debate rounds when agents disagree
+  convergence_threshold: 0.8 # Similarity threshold for convergence
+
+# Workflow Settings
+workflow:
+  timeout_seconds: 300       # Default task timeout
+  enable_streaming: true     # Stream responses for long tasks
+  save_conversations: true   # Save agent conversations
+
+# Logging
+logging:
+  level: "INFO"              # DEBUG, INFO, WARNING, ERROR
+  format: "json"             # json or text
+  log_dir: "logs"
+  save_audit_trail: true
+
+# Performance
+performance:
+  enable_caching: true       # Cache large context loads
+  cache_ttl_seconds: 3600    # Cache time-to-live
+  max_concurrent_tasks: 5    # Max parallel tasks
+
+# Cost Optimization
+cost_optimization:
+  track_token_usage: true
+  max_tokens_per_task: 500000  # Budget limit per task
+  warn_on_large_context: true
